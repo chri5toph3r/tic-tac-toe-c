@@ -141,9 +141,11 @@ int main() {
 	{
 		if (write_symbol(&board, symbols[turn%2]))
 		{
-			turn++;
 			print_board(&board);
 			is_winner = check_winner(&board);
+			if (is_winner) {
+				turn++;
+			}
 		}
 		scanf("%c", &filler);
 
