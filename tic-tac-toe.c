@@ -143,7 +143,7 @@ int main() {
 		{
 			print_board(&board);
 			is_winner = check_winner(&board);
-			if (is_winner) {
+			if (!is_winner) {
 				turn++;
 			}
 		}
