@@ -52,12 +52,15 @@ int write_symbol(char (*symbols)[3][3], char symbol) {
 
 	switch (col_letter) {
 		case 'A':
+		case 'a':
 			col = 0;
 			break;
 		case 'B':
+		case 'b':
 			col = 1;
 			break;
 		case 'C':
+		case 'c':
 			col = 2;
 			break;
 		default:
@@ -77,14 +80,12 @@ int write_symbol(char (*symbols)[3][3], char symbol) {
 
 int check_winner(char (*symbols)[3][3]) {
 	// check row
-	// printf("row: %c ?= %c ?= %c\n", (*symbols)[last_row][0], (*symbols)[last_row][1], (*symbols)[last_row][2]);
 	if (((*symbols)[last_row][0] == (*symbols)[last_row][1]) &&
 		((*symbols)[last_row][1] == (*symbols)[last_row][2])) {
 		return TRUE;
 	}
 
 	// check column
-	// printf("col: %c ?= %c ?= %c\n\n", (*symbols)[0][last_col], (*symbols)[1][last_col], (*symbols)[2][last_col]);
 	if (((*symbols)[0][last_col] == (*symbols)[1][last_col]) &&
 		((*symbols)[1][last_col] == (*symbols)[2][last_col])) {
 		return TRUE;
@@ -97,10 +98,6 @@ int check_winner(char (*symbols)[3][3]) {
 	for (int tile = 0; tile < 3; tile++) {
 		if (diag_t_b[tile][0] == last_row) {
 			if (diag_t_b[tile][1] == last_col) {
-
-				/* printf("diag \\: %c ?= %c ?= %c\n", (*symbols)[diag_t_b[0][0]][diag_t_b[0][1]],
-						(*symbols)[diag_t_b[1][0]][diag_t_b[1][1]],
-						(*symbols)[diag_t_b[2][0]][diag_t_b[2][1]]);*/
 
 				if (((*symbols)[diag_t_b[0][0]][diag_t_b[0][1]] == (*symbols)[diag_t_b[1][0]][diag_t_b[1][1]]) &&
 					((*symbols)[diag_t_b[1][0]][diag_t_b[1][1]] == (*symbols)[diag_t_b[2][0]][diag_t_b[2][1]])) {
@@ -117,10 +114,6 @@ int check_winner(char (*symbols)[3][3]) {
 	for (int tile = 0; tile < 3; tile++) {
 		if (diag_b_t[tile][0] == last_row) {
 			if (diag_b_t[tile][1] == last_col) {
-
-				/* printf("diag /: %c ?= %c ?= %c\n\n", (*symbols)[diag_b_t[0][0]][diag_b_t[0][1]],
-						(*symbols)[diag_b_t[1][0]][diag_b_t[1][1]],
-						(*symbols)[diag_b_t[2][0]][diag_b_t[2][1]]);*/
 
 				if (((*symbols)[diag_b_t[0][0]][diag_b_t[0][1]] == (*symbols)[diag_b_t[1][0]][diag_b_t[1][1]]) &&
 					((*symbols)[diag_b_t[1][0]][diag_b_t[1][1]] == (*symbols)[diag_b_t[2][0]][diag_b_t[2][1]])) {
@@ -153,8 +146,6 @@ int main() {
 			is_winner = check_winner(&board);
 		}
 		scanf("%c", &filler);
-
-		// printf("is_winner: %i\n", is_winner);
 
 	}
 	if (is_winner){
