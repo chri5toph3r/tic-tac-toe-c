@@ -134,7 +134,7 @@ int main() {
 
 	fill_board(&board, BLANK);
 
-	char filler = 'n';
+	char filler;
 
 	int is_winner = FALSE;
 	while(!is_winner && turn < 9)
